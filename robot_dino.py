@@ -45,6 +45,8 @@ class Herd:
 # class Weapon:
 # class Battlefield:
 
+#this function loops through the fight sequence
+
 
 def fight_sequence():
     robotOne = Fleet()
@@ -64,3 +66,4 @@ def fight_sequence():
 
 
 fight_sequence()
+
