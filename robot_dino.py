@@ -5,6 +5,8 @@ class Robot:
         self.power_level = 400
         self.weapon = "sword"
         self.attack_power = 50
+
+
 class Dinosaur:
     def __init__(self):
         self.type = "Metal-Greymon"
@@ -45,20 +47,20 @@ class Herd:
 
 
 def fight_sequence():
-    robot = Fleet()
-    dinosaur = Herd()
+    robotOne = Fleet()
+    dinosaurOne = Herd()
     turn = 'Dinosaur'
-    while not robot.defeated() and not dinosaur.defeated():
+    while not robotOne.defeated() and not dinosaurOne.defeated():
         if turn == 'Dinosaur':
-            for robot in robot.robots:
-                robot.health -= dinosaur.dinosaurs[0].attack_power
+            for robot in robotOne.robots:
+                robot.health -= dinosaurOne.dinosaurs[0].attack_power
             turn = 'Robot'
         elif turn == 'Robot':
-            for dinosaur in dinosaur.dinosaurs:
-                dinosaur.health -= robot.robots[0].attack_power
+            for dinosaur in dinosaurOne.dinosaurs:
+                dinosaur.health -= robotOne.robots[0].attack_power
             turn = 'Dinosaur'
-    print(robot.defeated())
-    print(dinosaur.defeated())
+    print("The dinosaurs won: ", robotOne.defeated())
+    print("The robots won: ", dinosaurOne.defeated())
 
 
 fight_sequence()
