@@ -22,6 +22,7 @@ class Fleet:
         self.robots.append(Robot())
         self.robots.append(Robot())
 
+    # this function loops through health
     def defeated(self):
         for robot in self.robots:
             if robot.health > 0:
@@ -42,12 +43,11 @@ class Herd:
                 return False
         return True
 
+
 # class Weapon:
 # class Battlefield:
 
-#this function loops through the fight sequence
-
-
+# this function loops through the fight sequence
 def fight_sequence():
     robotOne = Fleet()
     dinosaurOne = Herd()
@@ -66,4 +66,3 @@ def fight_sequence():
 
 
 fight_sequence()
-
