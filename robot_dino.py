@@ -1,10 +1,13 @@
+import random
+
+
 class Robot:
     def __init__(self):
         self.name = "voltron"
         self.health = 250
         self.power_level = 400
         self.weapon = "sword"
-        self.attack_power = 50
+        self.attack_power = random.randint(0,50)
 
 
 class Dinosaur:
@@ -12,7 +15,7 @@ class Dinosaur:
         self.type = "Metal-Greymon"
         self.health = 180
         self.energy = 500
-        self.attack_power = 100
+        self.attack_power = random.randint(0,100)
 
 
 class Fleet:
