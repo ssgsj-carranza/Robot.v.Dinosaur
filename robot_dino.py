@@ -1,27 +1,32 @@
 class Robot:
     def __init__(self):
         self.name = "voltron"
-        self.health = "250"
-        self.power_level = "400"
+        self.health = 250
+        self.power_level = 400
         self.weapon = "sword"
-        self.attack_power = "50"
+        self.attack_power = 50
 class Dinosaur:
     def __init__(self):
         self.type = "Metal-Greymon"
-        self.health = "180"
-        self.energy = "500"
-        self.attack_power = "100"
+        self.health = 180
+        self.energy = 500
+        self.attack_power = 100
+
+
 class Fleet:
     def __init__(self):
         self.robots = list()
         self.robots.append(Robot())
         self.robots.append(Robot())
         self.robots.append(Robot())
+
     def defeated(self):
         for robot in self.robots:
             if robot.health > 0:
                 return False
         return True
+
+
 class Herd:
     def __init__(self):
         self.dinosaurs = list()
@@ -29,23 +34,31 @@ class Herd:
         self.dinosaurs.append(Dinosaur())
         self.dinosaurs.append(Dinosaur())
 
+    def defeated(self):
+        for dino in self.dinosaurs:
+            if dino.health > 0:
+                return False
+        return True
+
 # class Weapon:
 # class Battlefield:
 
-def fightSequence():
+
+def fight_sequence():
     robot = Fleet()
     dinosaur = Herd()
-    encounter = 1
     turn = 'Dinosaur'
-    while encounter == 1:
+    while not robot.defeated() and not dinosaur.defeated():
         if turn == 'Dinosaur':
-            action = input("What would you like to do (Attack)? ")
-            if action == 'Attack':
-                encounter = humanAttack(Player)
-                turn = 'monster'
-        elif turn == 'monster':
-            encounter = monsterAttack(Monster)
-            turn = 'player'
+            for robot in robot.robots:
+                robot.health -= dinosaur.dinosaurs[0].attack_power
+            turn = 'Robot'
+        elif turn == 'Robot':
+            for dinosaur in dinosaur.dinosaurs:
+                dinosaur.health -= robot.robots[0].attack_power
+            turn = 'Dinosaur'
+    print(robot.defeated())
+    print(dinosaur.defeated())
 
 
-fightSequence()
+fight_sequence()
