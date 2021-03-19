@@ -7,15 +7,15 @@ class Robot:
         self.health = 250
         self.power_level = 400
         self.weapon = "sword"
-        self.attack_power = random.randint(0,50)
+        self.attack_power = random.randint(0, 50)
 
 
 class Dinosaur:
     def __init__(self):
         self.type = "Metal-Greymon"
-        self.health = 180
+        self.health = 150
         self.energy = 500
-        self.attack_power = random.randint(0,100)
+        self.attack_power = random.randint(0, 100)
 
 
 class Fleet:
@@ -47,10 +47,29 @@ class Herd:
         return True
 
 
-# class Weapon:
+class Weapon:
+    def __init__(self):
+        self.weapon_1 = "sword"
+        self.weapon_2 = "axe"
+        self.weapon_3 = "pulse rifle"
+
+    def choose_weapon(self, player_choice=None):
+
+        if player_choice == "sword":
+            player = Robot()
+        elif player_choice == "axe":
+            player = Robot()
+        elif player_choice == "pulse rifle":
+            player = Robot()
+        return player
+
+    player_choice = input("Choose your weapon: sword, axe, pulse rifle")
+
 # class Battlefield:
 
 # this function loops through the fight sequence
+
+
 def fight_sequence():
     robotOne = Fleet()
     dinosaurOne = Herd()
